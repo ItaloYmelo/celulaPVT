@@ -1,0 +1,29 @@
+class PVT:
+    def __init__(self):
+        pass
+    def calculate(self, toCalculate, pi, vi, ti, pf, vf, tf):
+        result = None
+        if toCalculate == 'pi': #calculate pi
+            result = (((pf*vf)/tf)*ti)/vi
+        elif toCalculate == 'ti': #calculate ti
+            result = (pi*vi)/((pf*vf)/tf)
+        elif toCalculate == 'vi': #calculate vi
+            result = (((pf*vf)/tf)*ti)/pi
+        elif toCalculate == 'pf': #calculate pf
+            result = (((pi*vi)/ti)*tf)/vf
+        elif toCalculate == 'tf': #calculate tf
+            result = (pf*vf)/((pi*vi)/ti)
+        elif toCalculate == 'vf': #calculate vf
+            result = (((pi*vi)/ti)*tf)/pf
+
+        return "%.2f" % result
+
+pvt = PVT()
+pi = 100
+ti = 10
+vi = 120
+
+pf = None #I want
+tf = 20
+vf = 30
+print('Result: ' + str(pvt.calculate('pf', pi, vi, ti, pf, vf, tf)))
